@@ -1,0 +1,24 @@
+#1
+import os
+
+ip = input("Enter EC2 Public IP: ")
+
+print(f"Pinging {ip}...")
+
+response = os.system(f"ping -c 3 {ip}")
+
+if response == 0:
+    print("EC2 is reachable")
+else:
+    print("EC2 not reachable")
+#2
+import subprocess
+
+ip = input("Enter IP: ")
+
+try:
+    output = subprocess.check_output(["ping", "-c", "2", ip])
+    print("Ping successful")
+    print(output.decode())
+except:
+    print("Ping failed")
